@@ -9,9 +9,9 @@ class PostApi {
         const url = "/posts";
         return axiosClient.post(url, content);
     };
-    edit = (id, content) => {
+    edit = (id, value) => {
         const url = `/posts/${id}`;
-        return axiosClient.put(url, content);
+        return axiosClient.put(url, value);
     };
     remove = (id) => {
         const url = `/posts/${id}`;
