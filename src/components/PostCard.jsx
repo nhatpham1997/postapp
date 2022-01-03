@@ -5,6 +5,7 @@ import ListComments from './ListComments';
 class Postcard extends Component {
   onRemove = (id) => {
     postApi.remove(id);
+    this.props.removePost(id);
   }
   onEdit = () => {
     this.props.changeShow();

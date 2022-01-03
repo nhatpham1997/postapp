@@ -11,13 +11,15 @@ class ListPost extends Component {
   addComment = (id, comment) => {
     this.props.addComment(id, comment);
   }
+  removePost = (id) => {
+    this.props.removePost(id);
+  }
   render() {
     const { list } = this.props;
-    console.log(list)
     return (
       <div className='mt-10'>
         {list?.map((item) => (
-          <Postcard key={item.id} id={item.id} createdAt={item.createdAt} content={item.content} imageUrl={item.imageUrl} comment={item.comment} changeShow={this.changeShow} dataItem={this.dataItem} addComment={this.addComment} />
+          <Postcard key={item.id} id={item.id} createdAt={item.createdAt} content={item.content} imageUrl={item.imageUrl} comment={item.comment} changeShow={this.changeShow} dataItem={this.dataItem} addComment={this.addComment} removePost={this.removePost} />
         ))}
       </div>
     );

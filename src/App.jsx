@@ -60,12 +60,20 @@ class App extends Component {
         )
     }
     addComment = (id, comment) => {
-        const index = this.state.postList.findIndex((obj => obj.id == id));
+        const index = this.state.postList.findIndex((obj => obj.id === id));
         this.setState((pre) => ({
             ...pre,
             postList: [...this.state.postList.slice(0, index), comment,
             ...this.state.postList.slice(index + 1)]
         }))
+    }
+    removePost = (id) => {
+        const array = [...this.state.postList];
+        const index = array.findIndex((obj => obj.id === id));
+        if (index !== -1) {
+            array.splice(index, 1);
+            this.setState({ postList: array });
+        }
     }
 
     render() {
@@ -75,7 +83,7 @@ class App extends Component {
             <div className="bg-slate-100 min-h-screen">
                 <CreateNewPost show={this.changeShow} />
                 <PostForm show={show} hidden={this.changeShow} pushPost={this.pushPost} id={this.state.postItem.id} content={this.state.postItem.content} editPost={this.editPost} />
-                <ListPost list={postList} changeShow={this.changeShow} dataItem={this.dataItem} addComment={this.addComment} />
+                <ListPost list={postList} changeShow={this.changeShow} dataItem={this.dataItem} addComment={this.addComment} removePost={this.removePost} />
             </div>
         );
     }

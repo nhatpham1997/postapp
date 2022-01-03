@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import postApi from "../api/postApi";
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog } from '@headlessui/react'
 
 class NewPostForm extends Component {
     state = {

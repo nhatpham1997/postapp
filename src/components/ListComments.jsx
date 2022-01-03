@@ -20,7 +20,6 @@ class ListComments extends Component {
   }
   render() {
     const { comment } = this.props;
-    console.log(comment);
     return (
       <div className='mb-4'>
         {comment.map((item, index) => (
