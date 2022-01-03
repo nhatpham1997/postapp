@@ -63,7 +63,7 @@ class App extends Component {
         const index = this.state.postList.findIndex((obj => obj.id == id));
         this.setState((pre) => ({
             ...pre,
-            postList: [...this.state.postList.slice(0, index), Object.assign({}, this.state.postList[index], { comment }),
+            postList: [...this.state.postList.slice(0, index), comment,
             ...this.state.postList.slice(index + 1)]
         }))
     }

@@ -9,6 +9,9 @@ class ListComments extends Component {
     e.preventDefault();
     const newComment = await postApi.edit(this.props.id, { comment: [this.state.comment, ...this.props.comment] });
     this.props.addComment(this.props.id, newComment);
+    this.setState({
+      comment: ''
+    })
   }
   handleChange = (e) => {
     this.setState({
@@ -17,6 +20,7 @@ class ListComments extends Component {
   }
   render() {
     const { comment } = this.props;
+    console.log(comment);
     return (
       <div className='mb-4'>
         {comment.map((item, index) => (
@@ -25,7 +29,7 @@ class ListComments extends Component {
           </div>
         ))}
         <form onSubmit={this.handleSubmit}>
-          <input className="bg-gray-100 pl-5 pr-32 py-2 rounded-full w-full" type="text" placeholder='Viết bình luận' onChange={this.handleChange} />
+          <input className="bg-gray-100 pl-5 pr-32 py-2 rounded-full w-full" type="text" value={this.state.comment} placeholder='Viết bình luận' onChange={this.handleChange} />
           <button type="submit" className='hidden'>Submit</button>
         </form>
       </div>
