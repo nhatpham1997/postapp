@@ -41,7 +41,7 @@ class App extends Component {
         }))
     }
     editPost = (id, content) => {
-        const index = this.state.postList.findIndex((obj => obj.id == id));
+        const index = this.state.postList.findIndex((obj => obj.id === id));
         this.setState((pre) => ({
             ...pre,
             postList: [...this.state.postList.slice(0, index), Object.assign({}, this.state.postList[index], { content }),
